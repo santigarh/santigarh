@@ -12,20 +12,30 @@ const {} = Astro.props
     <div
       class="grid grid-cols-2 gap-3 md:place-content-center md:h-screen items-center justify-items-center"
     >
-      <div class="col-span-2 md:col-span-1 px-4">
-        <p class="text-xl md:text-2xl text-white">Hola, soy</p>
+      <div class="col-span-2 md:col-span-1 px-4"></div>
+
+      <div
+        class="col-span-2 md:col-span-1 content-center my-4 md:my-0 text-end"
+      >
+        <p class="text-xl md:text-2xl text-white">¡Hola!, soy</p>
         <span
           class="text-5xl md:text-6xl font-bold pb-3 bg-clip-text text-transparent bg-gradient-to-r from-[#0061ff] to-[#60efff]"
           >Santiago
         </span>
         <p class="text-2xl md:text-3xl mt-2 text-white">
-          Frontend Developer apasionado por la tecnología y la programación.
+          Un desarrollador Full Stack apasionado por la tecnología y la
+          programación.
         </p>
         <p class="text-md md:text-xl mt-2 text-blue-100">
-          Siempre estoy aprendiendo nuevas tecnologías y buscando nuevas formas
-          de mejorar mis proyectos.
+          Me encanta mantenerme actualizado en las últimas tendencias y
+          herramientas tecnológicas, siempre en busca de nuevas formas de
+          mejorar mis proyectos. Con mi experiencia en el desarrollo de
+          aplicaciones web y móviles, disfruto trabajar en equipo para crear
+          soluciones innovadoras y escalables. ¡Bienvenido a mi portafolio web!"
         </p>
-        <div class="flex flex-col-reverse lg:flex-row my-8 items-center">
+        <div
+          class="flex flex-col-reverse lg:flex-row my-8 items-center justify-end"
+        >
           <a
             href="mailto:hola@danik.dev"
             rel="noopener nofollow"
@@ -88,10 +98,6 @@ const {} = Astro.props
           </div>
         </div>
       </div>
-
-      <!-- Imagen Derecha  rounded-md shadow-lg bg-gray-400 dark:bg-slate-700 -->
-      <!--  border-radius: 30% 70% 67% 33% / 30% 30% 70% 70%  -->
-      <div class="col-span-2 md:col-span-1 content-center my-4 md:my-0"></div>
     </div>
   </div>
 </section>
