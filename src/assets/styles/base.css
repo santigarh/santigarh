@@ -1,0 +1,123 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .btn {
+    @apply inline-flex items-center justify-center rounded border border-transparent font-medium text-center text-base leading-snug transition py-3 px-6 shadow-lg ease-in duration-200 focus:ring-blue-500 focus:ring-offset-blue-200 focus:ring-2 focus:ring-offset-2;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.contacto:hover {
+  transition: 0.3s;
+  border-bottom-width: 0px;
+  background-color: #3878df;
+}
+
+.contacto:active {
+  transition: 0.3s;
+  background-color: #2f68c4;
+}
+
+.border-fancy {
+  border-radius: 37% 63% 67% 33% / 30% 33% 67% 70%;
+}
+
+.buttons-projects a{
+  font-size: 30px;
+  color: white;
+  border-radius: 50%;
+  background: #0d0d0d;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  transition: all 0.3s ease-out;
+  transform: none;
+  margin-top: 1rem;
+}
+
+.buttons-projects a:hover{
+  background: #2c2c2c;
+  transform: scale(1.05);
+}
+
+.resetHover:hover{
+  background: #0d0d0d !important;
+  transform: scale(1) !important;
+}
+
+@keyframes pulsate {
+  0% {
+    transform: scale(0.6, 0.6);
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1, 1);
+    opacity: 0;
+  }
+}
+
+@keyframes heart-pulse {
+  0% {
+    transform: scale(0.75, 0.75);
+  }
+  30% {
+    transform: scale(1, 1);
+  }
+}
+
+.pulse-base {
+  position: absolute;
+  height: 50px;
+  width: 50px;
+  border: 15px solid transparent;
+  border-radius: 50%;
+  margin: 0 auto;
+}
+
+.pulse-base:before {
+  content: '';
+  border: 15px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  height: 50px;
+  width: 50px;
+  position: absolute;
+  left: -15px;
+  bottom: -15px;
+  animation: pulsate 3s ease-out;
+  animation-iteration-count: infinite;
+  opacity: 0;
+  z-index: 99;
+}
+
+/*.pulse-base {
+  position: absolute;
+  height: 60px;
+  width: 60px;
+  border: 15px solid transparent;
+  border-radius: 50%;
+  margin: 0 auto;
+}
+
+.pulse-base:before {
+  content: '';
+  border: 15px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  height: 60px;
+  width: 60px;
+  position: absolute;
+  left: -15px;
+  bottom: -15px;
+  animation: pulsate 1.6s ease-out;
+  animation-iteration-count: infinite;
+  opacity: 0;
+  z-index: 99;
+}*/

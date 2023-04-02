@@ -1,6 +1,8 @@
 ---
-import Header from '../components/Header.astro'
+import Header from '../components/widgets/Header.astro'
 import '@fontsource/overpass'
+
+import '../assets/styles/base.css'
 
 export interface Props {
   title: string
@@ -10,7 +12,7 @@ const { title, description = 'Full Stack Developer' } = Astro.props
 
 const seoTitle = title
   ? `${title} | Full Stack Developer`
-  : 'Santigarh | Biblia'
+  : 'Santigarh  Full Stack Developer'
 ---
 
 <!DOCTYPE html>
@@ -18,7 +20,7 @@ const seoTitle = title
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/svg+xml" href="/logo_sg.png" />
     <meta name="generator" content={Astro.generator} />
     <link rel="canonical" href={Astro.url.href} />
     <meta name="description" content={description} />
@@ -51,7 +53,7 @@ const seoTitle = title
       fetchpriority="high"
       crossorigin
     />
-    <title>{title}</title>
+    <title>{seoTitle}</title>
   </head>
   <body class="min-h-screen overflow-x-hidden">
     <Header />
