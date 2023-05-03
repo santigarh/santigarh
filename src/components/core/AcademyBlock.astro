@@ -1,5 +1,6 @@
 ---
 const { logo, title, location, date, style } = Astro.props
+console.log({ logo })
 ---
 
 <div class="flex flex-row mb-4">
@@ -8,7 +9,7 @@ const { logo, title, location, date, style } = Astro.props
     style={style}
   >
     <div class="absolute mx-2.5 my-2.5 pointer-events-none select-none">
-      <img src={logo} alt={title} width="72" height="72" loading="lazy" />
+      <img src={logo.src} alt={title} width="72" height="72" loading="lazy" />
     </div>
   </div>
   <div class="flex flex-col pl-4">

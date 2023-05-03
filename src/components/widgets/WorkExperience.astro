@@ -1,8 +1,11 @@
 ---
 import AcademyBlock from '../core/AcademyBlock.astro'
-import GraduationSVG from '../../assets/images/logos/graduation.svg'
-import UdemySVG from '../../assets/images/logos/udemy.svg'
-import FccSVG from '../../assets/images/logos/fcc.svg'
+import Espe from '../../assets/images/logos/espe.jpg'
+import Unir from '../../assets/images/logos/unir.jpeg'
+import Genesys from '../../assets/images/logos/genesys.jpg'
+import Ubits from '../../assets/images/logos/ubits.png'
+import Coursera from '../../assets/images/logos/coursera.jpg'
+import Platzi from '../../assets/images/logos/platzi.jpg'
 const {} = Astro.props
 ---
 
@@ -28,7 +31,7 @@ const {} = Astro.props
               <div class="pulse-base border-indigo-300"></div>
             </div>
           </div>
-          <div class="w-px h-full dbg-slate-500"></div>
+          <div class="w-px h-full bg-slate-500"></div>
         </div>
         <div class="flex">
           <div class="pt-1 pb-8">
@@ -57,19 +60,16 @@ const {} = Astro.props
         <div class="flex">
           <div class="pt-1 pb-8">
             <h2 class="text-xl font-bold text-slate-300">
-              Administrador de Sistemas & Desarrollador Web
+              Full Stack Developer
             </h2>
-            <h3 class="mb-1 text-lg text-slate-400">SNTec</h3>
+            <h3 class="mb-1 text-lg text-slate-400">Seteinfo</h3>
             <h4 class="mb-1 text-sm text-slate-400">
-              Oct 2021 - Sep 2022 · 1 año
+              Sep 2019 - Feb 2022 · 2 años
             </h4>
             <div class="pl-4">
-              <p>- Mantenimiento de infraestructuras</p>
-              <p>- Gestión de servidores</p>
-              <p>- Backup, gestión de archivos y usuarios</p>
-              <p>- Desarrollo con PHP, JavaScript y SQL</p>
-              <p>- Gestión del servidor Apache</p>
-              <p>- WordPress y PrestaShop</p>
+              <p>- Integraciones con Genesys Cloud</p>
+              <p>- Desarrollo web .Net</p>
+              <p>- Soporte sistema</p>
             </div>
           </div>
         </div>
@@ -85,18 +85,17 @@ const {} = Astro.props
         </div>
         <div class="flex">
           <div class="pt-1 pb-8">
-            <h2 class="text-xl font-bold text-slate-300">Frontend Developer</h2>
-            <h3 class="mb-1 text-lg text-slate-400">Windnova Systems S.L</h3>
+            <h2 class="text-xl font-bold text-slate-300">
+              Full Stack Developer
+            </h2>
+            <h3 class="mb-1 text-lg text-slate-400">Freelancer</h3>
             <h4 class="mb-1 text-sm text-slate-400">
-              Mar 2021 - Jun 2021 · 4 meses
+              Jun 2018 - Sept 2019 · 1 año 4 meses
             </h4>
             <div class="pl-4">
-              <p>Contrato de prácticas en el que he realizado y aprendido:</p>
-              <p>- Programación PHP, JavaScript y SQL</p>
-              <p>- Jira Software</p>
-              <p>- MySQL Workbench</p>
-              <p>- Docker</p>
-              <p>- Git Flow</p>
+              <p>Desarrollo de aplicaciones web</p>
+              <p>React</p>
+              <p>Flutter</p>
             </div>
           </div>
         </div>
@@ -113,17 +112,18 @@ const {} = Astro.props
         </h1>
 
         <AcademyBlock
-          logo={GraduationSVG}
-          title={'Desarrollo de Aplicaciones Web'}
-          location={'Es Liceu'}
-          date={'2021 - 2022 *(Finalizado el primer curso)'}
-          style="background: linear-gradient(to right bottom, #cbd5e1 50%, #AEB7C2 50%);"
+          logo={Unir}
+          title={'Master en Desarrollo y Operaciones (DevOps)'}
+          location={'Unir'}
+          date={'2021 - 2022 '}
+          style="background: linear-gradient(0.25turn, #3f87a6, #ebf8e1, #f69d3c);};"
         />
         <AcademyBlock
-          logo={GraduationSVG}
-          title={'Administración de Sistemas Informáticos en Red'}
-          location={'San José Obrero'}
-          date={'2019 - 2021'}
+          logo={Espe}
+          title={'Ing. en Sistemas e Informática'}
+          location={'ESPE Quito, Ecuador'}
+          date={'2015 - 2020'}
+          style="background: linear-gradient(0.25turn, #3f87a6, #ebf8e1, #f69d3c);};"
         />
 
         <h2
@@ -132,28 +132,32 @@ const {} = Astro.props
           Certificaciones
         </h2>
         <AcademyBlock
-          logo={UdemySVG}
-          title={'Bootstrap 4 Ultimate Guide 2022'}
-          location={'Udemy'}
-          date={'2022'}
+          logo={Genesys}
+          title={'Genesys Cloud CX: Professional Certification'}
+          location={'Genesys'}
+          date={'2021'}
+          style="background: linear-gradient(to left, #333, #333 50%, #eee 75%, #333 75%);};"
         />
         <AcademyBlock
-          logo={UdemySVG}
-          title={'Modern JavaScript for React JS - ES6'}
-          location={'Udemy'}
+          logo={Ubits}
+          title={'Cómo ser 100% proactivo'}
+          location={'Ubits'}
           date={'2022'}
+          style="background: linear-gradient(to left, #333, #333 50%, #eee 75%, #333 75%);};"
         />
         <AcademyBlock
-          logo={FccSVG}
-          title={'JavaScript Algorithms and Data Structures'}
-          location={'freeCodeCamp'}
-          date={'2022'}
+          logo={Coursera}
+          title={'Contact Center AI: Conversational Design Fundamentals'}
+          location={'Coursera'}
+          date={'2021'}
+          style="background: linear-gradient(to left, #333, #333 50%, #eee 75%, #333 75%);};"
         />
         <AcademyBlock
-          logo={FccSVG}
-          title={'Responsive Web Design'}
-          location={'freeCodeCamp'}
-          date={'2022'}
+          logo={Platzi}
+          title={'Curso Profesional de GIT Y GITHUB'}
+          location={'Platzi'}
+          date={'2021'}
+          style="background: linear-gradient(to left, #333, #333 50%, #eee 75%, #333 75%);};"
         />
       </div>
     </div>
