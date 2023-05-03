@@ -1,0 +1,52 @@
+---
+import ProyectoPortfolio from '../../assets/images/proyecto-portfolio.png'
+import BuscadorPelis from '../../assets/images/buscadorPeliculas.jpg'
+import RemoveBg from '../../assets/images/removebg.png'
+
+import CardProject from './CardProject.astro'
+const {} = Astro.props
+const proyectos = [
+  {
+    title: 'Remove Background',
+    image: RemoveBg,
+    descripcion:
+      'Proyecto que permite quitar el fondo de cualquier imagen para lo que se ocupó cloudinary',
+    aspectRatio: '18:9',
+    repositorio: 'https://github.com/santigarh/removeBG',
+  },
+  {
+    title: 'Buscador Películas',
+    image: BuscadorPelis,
+    descripcion:
+      'Proyecto que consume un api para búsqueda de peliculas y muestras las descripciones ',
+    aspectRatio: '18:9',
+    repositorio: 'https://github.com/santigarh/BuscadorPeliculas',
+  },
+]
+---
+
+<section id="proyectos" class="px-4 py-16 mx-auto max-w-6xl lg:py-20">
+  <div
+    class="max-w-xl mb-10 md:mx-auto sm:text-center lg:max-w-2xl md:mb-12 px-6"
+  >
+    <h1
+      class="text-4xl md:text-5xl font-bold leading-tighter tracking-tighter mb-4 text-gray-200"
+    >
+      Proyectos
+    </h1>
+    <p class="max-w-3xl mx-auto sm:text-center text-xl text-slate-400">
+      Estos son algunos de mis proyectos
+    </p>
+  </div>
+  <div class="grid mx-auto gap-4 space-y-6 md:grid-cols-2 md:space-y-0">
+    {
+      proyectos.map((proyecto) => (
+        <CardProject
+          image={proyecto.image}
+          title={proyecto.title}
+          descripcion={proyecto.descripcion}
+        />
+      ))
+    }
+  </div>
+</section>

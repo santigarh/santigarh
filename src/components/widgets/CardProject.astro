@@ -1,0 +1,47 @@
+---
+import Picture from '../core/Picture.astro'
+import {
+  IconJS,
+  IconTailwind,
+  IconArduino,
+  IconAstro,
+  IconAstroDark,
+} from '../icons'
+
+import ButtonsProjects from '../core/ButtonsProjects.astro'
+
+const { image, title, descripcion, aspectRatio, repositorio } = Astro.props
+---
+
+<div class="space-y-8 sm:px-8 flex justify-center p-6 bg-[#244856] rounded">
+  <div class="flex flex-col max-w-md gap-2">
+    <Picture
+      src={image}
+      class="pointer-events-none select-none"
+      widths={[1000, 500]}
+      sizes=" (max-width: 420px) 1000, 500px"
+      alt="Portfolio"
+      aspectRatio={aspectRatio}
+    />
+    <h2
+      class="text-3xl md:text-4xl font-bold tracking-tighter mb-4 text-slate-400 gap-2"
+    >
+      {title}
+    </h2>
+    <div class="flex flex-row max-w-md gap-3">
+      <div><IconAstroDark /></div>
+      <div><IconTailwind /></div>
+      <div><IconJS /></div>
+    </div>
+    <p class="my-4 text-white">
+      {descripcion}
+    </p>
+    <ButtonsProjects
+      hrefView={'https://github.com/santigarh'}
+      target="_self"
+      hrefCode={repositorio}
+      hrefInfo="#Próximamente"
+      opacityInfo="opacity-50 cursor-default resetHover"
+    />
+  </div>
+</div>
