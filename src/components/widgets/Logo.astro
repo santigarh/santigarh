@@ -1,5 +1,5 @@
 ---
-import { IconSG } from '../icons'
+import { IconSG, IconSGBlue } from '../icons'
 const {} = Astro.props
 ---
 
@@ -7,6 +7,9 @@ const {} = Astro.props
   class="self-center text-2xl font-extrabold text-gray-900 whitespace-nowrap dark:text-white"
 >
   <IconSG
-    class="w-24 h-16 hover:rotate-45 transition duration-300 ease-in-out"
+    class="w-24 h-16 hover:rotate-45 transition duration-300 ease-in-out hidden dark:block"
+  />
+  <IconSGBlue
+    class="w-24 h-16 hover:rotate-45 transition duration-300 ease-in-out dark:hidden"
   />
 </span>

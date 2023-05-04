@@ -15,6 +15,7 @@ import IconArduino from './IconArduino.astro'
 import IconPHP from './IconPHP.astro'
 import IconAstro from './IconAstro.astro'
 import IconAstroDark from './IconAstroDark.astro'
+import IconSGBlue from './IconSGBlue.astro'
 
 export {
   DarkLightIcon,
@@ -34,4 +35,5 @@ export {
   IconPHP,
   IconAstro,
   IconAstroDark,
+  IconSGBlue,
 }

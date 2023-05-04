@@ -13,7 +13,9 @@ import ButtonsProjects from '../core/ButtonsProjects.astro'
 const { image, title, descripcion, aspectRatio, repositorio } = Astro.props
 ---
 
-<div class="space-y-8 sm:px-8 flex justify-center p-6 bg-[#244856] rounded">
+<div
+  class="space-y-8 sm:px-8 flex justify-center p-6 bg-[#EBF3FF] dark:bg-[#244856] rounded"
+>
   <div class="flex flex-col max-w-md gap-2">
     <Picture
       src={image}
@@ -23,9 +25,7 @@ const { image, title, descripcion, aspectRatio, repositorio } = Astro.props
       alt="Portfolio"
       aspectRatio={aspectRatio}
     />
-    <h2
-      class="text-3xl md:text-4xl font-bold tracking-tighter mb-4 text-slate-400 gap-2"
-    >
+    <h2 class="text-3xl md:text-4xl font-bold tracking-tighter mb-4 gap-2">
       {title}
     </h2>
     <div class="flex flex-row max-w-md gap-3">
@@ -33,7 +33,7 @@ const { image, title, descripcion, aspectRatio, repositorio } = Astro.props
       <div><IconTailwind /></div>
       <div><IconJS /></div>
     </div>
-    <p class="my-4 text-white">
+    <p class="my-4">
       {descripcion}
     </p>
     <ButtonsProjects
