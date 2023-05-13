@@ -2,99 +2,101 @@
 import IconMail from '../icons/IconMail.astro'
 const {} = Astro.props
 import Picture from '../core/Picture.astro'
+import { annotate } from 'rough-notation'
 ---
 
 <section>
   <div
-    id="inicio"
-    class="container mx-auto flex flex-col gap-9 overflow-x-hidden lg:max-w-6xl px-4 py-16 sm:px-6 md:h-[94vh]"
+    id='inicio'
+    class='container mx-auto flex flex-col gap-9 overflow-x-hidden lg:max-w-6xl px-4 py-16 sm:px-6 md:h-[94vh]'
   >
     <!-- flex justify-around items-center -->
     <div
-      class="grid grid-cols-2 gap-3 md:place-content-center md:h-screen justify-items-start"
+      class='grid grid-cols-2 gap-3 md:place-content-center md:h-screen justify-items-start'
     >
-      <div class="col-span-2 md:col-span-1">
+      <div class='col-span-2 md:col-span-1'>
         <Picture
           src={import('../../assets/images/foto-perfil.jpg')}
-          class="rounded-full shadow-md mx-auto border-fancy container-img pointer-events-none select-none md:max-w-[400px]"
+          class='rounded-full shadow-md mx-auto border-fancy container-img pointer-events-none select-none md:max-w-[400px]'
           widths={[800, 800]}
-          sizes=" (max-width: 800px) 800, 800px"
-          alt="My face"
-          aspectRatio="1:1"
-          loading="auto"
+          sizes=' (max-width: 800px) 800, 800px'
+          alt='My face'
+          aspectRatio='1:1'
+          loading='auto'
         />
       </div>
 
       <div
-        class="col-span-2 md:col-span-1 content-center my-4 md:my-0 text-end"
+        class='col-span-2 md:col-span-1 content-center my-4 md:my-0 text-end'
       >
-        <p class="text-xl md:text-2xl dark:text-white">¡Hola!, soy</p>
+        <p class='text-xl md:text-2xl dark:text-white'>¡Hola!, soy</p>
         <span
-          class="text-5xl md:text-6xl font-bold pb-3 bg-clip-text text-transparent bg-gradient-to-r from-[#0061ff] to-[#60efff]"
+          class='text-5xl md:text-6xl font-bold pb-3 bg-clip-text text-transparent bg-gradient-to-r from-[#0061ff] to-[#60efff]'
           >Santiago
         </span>
-        <p class="text-2xl md:text-3xl mt-2 dark:text-white">
+        <p class='text-2xl md:text-3xl mt-2 dark:text-white'>
           Un desarrollador Full Stack apasionado por la tecnología y la
           programación.
         </p>
-        <p class="text-md md:text-xl mt-2 dark:text-blue-100">
+        <p class='text-md md:text-xl mt-2 dark:text-blue-100'>
           Me encanta mantenerme actualizado en las últimas tendencias y
           herramientas tecnológicas, siempre en busca de nuevas formas de
-          mejorar mis proyectos. Con mi experiencia en el desarrollo de
-          aplicaciones web y móviles, disfruto trabajar en equipo para crear
-          soluciones innovadoras y escalables. ¡Bienvenido a mi portafolio web!"
+          mejorar mis proyectos. Con mi experiencia en el
+          <em>desarrollo de aplicaciones web y móviles,</em>
+          disfruto trabajar en equipo para crear soluciones innovadoras y escalables.
+          ¡Bienvenido a mi portafolio web!"
         </p>
         <div
-          class="flex flex-col-reverse lg:flex-row my-8 items-center justify-end"
+          class='flex flex-col-reverse lg:flex-row my-8 items-center justify-end'
         >
           <a
-            href="mailto:hola@danik.dev"
-            rel="noopener nofollow"
-            aria-label="Contacto"
-            class="flex flex-row items-center gap-4 contacto bg-blue-500 text-white font-bold py-4 px-6 border-b-4 border-blue-700 hover:border-blue-500 rounded text-xl lg:mr-4"
+            href='mailto:santigarh.77@gmail.com'
+            rel='noopener nofollow'
+            aria-label='Contacto'
+            class='flex flex-row items-center gap-4 contacto bg-blue-500 text-white font-bold py-4 px-6 border-b-4 border-blue-700 hover:border-blue-500 rounded text-xl lg:mr-4'
             >Contacto <IconMail />
           </a>
-          <div class="flex flex-row">
+          <div class='flex flex-row'>
             <a
-              href="https://github.com/DaniKOrdo"
-              target="_blank"
-              rel="noopener nofollow"
-              aria-label="Github"
-              class="m-3 hover:brightness-125"
+              href='https://github.com/santigarh'
+              target='_blank'
+              rel='noopener nofollow'
+              aria-label='Github'
+              class='m-3 hover:brightness-125'
             >
               <svg
-                xmlns="http://www.w3.org/2000/svg"
-                xmlns:xlink="http://www.w3.org/1999/xlink"
-                viewBox="0 0 48 48"
-                width="48px"
-                height="48px"
+                xmlns='http://www.w3.org/2000/svg'
+                xmlns:xlink='http://www.w3.org/1999/xlink'
+                viewBox='0 0 48 48'
+                width='48px'
+                height='48px'
               >
-                <g id="surface12086354">
+                <g id='surface12086354'>
                   <path
-                    style=" stroke:none;fill-rule:nonzero;fill:rgb(44.705883%,45.882353%,49.411765%);fill-opacity:1;"
-                    d="M 24 4 C 12.972656 4 4 12.972656 4 24 C 4 35.027344 12.972656 44 24 44 C 35.027344 44 44 35.027344 44 24 C 44 12.972656 35.027344 4 24 4 Z M 24 7 C 33.40625 7 41 14.59375 41 24 C 41 31.664062 35.957031 38.121094 29 40.25 L 29 35.136719 C 29 33.226562 27.898438 31.589844 26.308594 30.773438 C 29.445312 30.171875 32.03125 28.398438 33.246094 26.007812 C 34.460938 23.617188 34.160156 20.902344 32.4375 18.722656 C 32.882812 17.355469 33.375 14.960938 32.199219 13.074219 C 29.929688 13.074219 28.464844 14.632812 27.765625 15.597656 C 26.570312 15.207031 25.292969 15.003906 24 15 C 22.707031 15 21.425781 15.203125 20.230469 15.59375 C 19.53125 14.625 18.066406 13.074219 15.800781 13.074219 C 14.449219 15.238281 15.285156 17.566406 15.734375 18.515625 C 13.890625 20.6875 13.503906 23.445312 14.691406 25.894531 C 15.875 28.339844 18.488281 30.167969 21.683594 30.777344 C 20.375 31.453125 19.398438 32.675781 19.097656 34.15625 L 17.785156 34.15625 C 16.484375 34.15625 15.980469 33.628906 15.28125 32.738281 C 14.589844 31.851562 13.84375 31.253906 12.953125 31.007812 C 12.46875 30.953125 12.144531 31.320312 12.566406 31.644531 C 13.984375 32.613281 14.082031 34.195312 14.652344 35.226562 C 15.167969 36.160156 16.230469 37 17.429688 37 L 19 37 L 19 40.25 C 12.042969 38.121094 7 31.664062 7 24 C 7 14.59375 14.59375 7 24 7 Z M 24 7 "
+                    style=' stroke:none;fill-rule:nonzero;fill:rgb(44.705883%,45.882353%,49.411765%);fill-opacity:1;'
+                    d='M 24 4 C 12.972656 4 4 12.972656 4 24 C 4 35.027344 12.972656 44 24 44 C 35.027344 44 44 35.027344 44 24 C 44 12.972656 35.027344 4 24 4 Z M 24 7 C 33.40625 7 41 14.59375 41 24 C 41 31.664062 35.957031 38.121094 29 40.25 L 29 35.136719 C 29 33.226562 27.898438 31.589844 26.308594 30.773438 C 29.445312 30.171875 32.03125 28.398438 33.246094 26.007812 C 34.460938 23.617188 34.160156 20.902344 32.4375 18.722656 C 32.882812 17.355469 33.375 14.960938 32.199219 13.074219 C 29.929688 13.074219 28.464844 14.632812 27.765625 15.597656 C 26.570312 15.207031 25.292969 15.003906 24 15 C 22.707031 15 21.425781 15.203125 20.230469 15.59375 C 19.53125 14.625 18.066406 13.074219 15.800781 13.074219 C 14.449219 15.238281 15.285156 17.566406 15.734375 18.515625 C 13.890625 20.6875 13.503906 23.445312 14.691406 25.894531 C 15.875 28.339844 18.488281 30.167969 21.683594 30.777344 C 20.375 31.453125 19.398438 32.675781 19.097656 34.15625 L 17.785156 34.15625 C 16.484375 34.15625 15.980469 33.628906 15.28125 32.738281 C 14.589844 31.851562 13.84375 31.253906 12.953125 31.007812 C 12.46875 30.953125 12.144531 31.320312 12.566406 31.644531 C 13.984375 32.613281 14.082031 34.195312 14.652344 35.226562 C 15.167969 36.160156 16.230469 37 17.429688 37 L 19 37 L 19 40.25 C 12.042969 38.121094 7 31.664062 7 24 C 7 14.59375 14.59375 7 24 7 Z M 24 7 '
                   ></path>
                 </g>
               </svg>
             </a>
             <a
-              href="https://www.linkedin.com/in/danikdev"
-              target="_blank"
-              rel="noopener nofollow"
-              aria-label="Linkedin"
-              class="m-3 hover:brightness-125"
+              href='https://www.linkedin.com/in/santigarh/'
+              target='_blank'
+              rel='noopener nofollow'
+              aria-label='Linkedin'
+              class='m-3 hover:brightness-125'
             >
               <svg
-                xmlns="http://www.w3.org/2000/svg"
-                xmlns:xlink="http://www.w3.org/1999/xlink"
-                viewBox="0 0 48 48"
-                width="48px"
-                height="48px"
+                xmlns='http://www.w3.org/2000/svg'
+                xmlns:xlink='http://www.w3.org/1999/xlink'
+                viewBox='0 0 48 48'
+                width='48px'
+                height='48px'
               >
-                <g id="surface12107703">
+                <g id='surface12107703'>
                   <path
-                    style=" stroke:none;fill-rule:nonzero;fill:rgb(44.705883%,45.882353%,49.411765%);fill-opacity:1;"
-                    d="M 11.5 6 C 8.480469 6 6 8.480469 6 11.5 L 6 36.5 C 6 39.519531 8.480469 42 11.5 42 L 36.5 42 C 39.519531 42 42 39.519531 42 36.5 L 42 11.5 C 42 8.480469 39.519531 6 36.5 6 Z M 11.5 9 L 36.5 9 C 37.898438 9 39 10.101562 39 11.5 L 39 36.5 C 39 37.898438 37.898438 39 36.5 39 L 11.5 39 C 10.101562 39 9 37.898438 9 36.5 L 9 11.5 C 9 10.101562 10.101562 9 11.5 9 Z M 15.5 13 C 14.121094 13 13 14.121094 13 15.5 C 13 16.878906 14.121094 18 15.5 18 C 16.878906 18 18 16.878906 18 15.5 C 18 14.121094 16.878906 13 15.5 13 Z M 14 20 C 13.445312 20 13 20.445312 13 21 L 13 34 C 13 34.554688 13.445312 35 14 35 L 17 35 C 17.554688 35 18 34.554688 18 34 L 18 21 C 18 20.445312 17.554688 20 17 20 Z M 21 20 C 20.445312 20 20 20.445312 20 21 L 20 34 C 20 34.554688 20.445312 35 21 35 L 24 35 C 24.554688 35 25 34.554688 25 34 L 25 26.5 C 25 25.121094 26.121094 24 27.5 24 C 28.878906 24 30 25.121094 30 26.5 L 30 34 C 30 34.554688 30.445312 35 31 35 L 34 35 C 34.554688 35 35 34.554688 35 34 L 35 26 C 35 22.691406 32.308594 20 29 20 C 27.460938 20 26.0625 20.585938 25 21.539062 L 25 21 C 25 20.445312 24.554688 20 24 20 Z M 21 20 "
+                    style=' stroke:none;fill-rule:nonzero;fill:rgb(44.705883%,45.882353%,49.411765%);fill-opacity:1;'
+                    d='M 11.5 6 C 8.480469 6 6 8.480469 6 11.5 L 6 36.5 C 6 39.519531 8.480469 42 11.5 42 L 36.5 42 C 39.519531 42 42 39.519531 42 36.5 L 42 11.5 C 42 8.480469 39.519531 6 36.5 6 Z M 11.5 9 L 36.5 9 C 37.898438 9 39 10.101562 39 11.5 L 39 36.5 C 39 37.898438 37.898438 39 36.5 39 L 11.5 39 C 10.101562 39 9 37.898438 9 36.5 L 9 11.5 C 9 10.101562 10.101562 9 11.5 9 Z M 15.5 13 C 14.121094 13 13 14.121094 13 15.5 C 13 16.878906 14.121094 18 15.5 18 C 16.878906 18 18 16.878906 18 15.5 C 18 14.121094 16.878906 13 15.5 13 Z M 14 20 C 13.445312 20 13 20.445312 13 21 L 13 34 C 13 34.554688 13.445312 35 14 35 L 17 35 C 17.554688 35 18 34.554688 18 34 L 18 21 C 18 20.445312 17.554688 20 17 20 Z M 21 20 C 20.445312 20 20 20.445312 20 21 L 20 34 C 20 34.554688 20.445312 35 21 35 L 24 35 C 24.554688 35 25 34.554688 25 34 L 25 26.5 C 25 25.121094 26.121094 24 27.5 24 C 28.878906 24 30 25.121094 30 26.5 L 30 34 C 30 34.554688 30.445312 35 31 35 L 34 35 C 34.554688 35 35 34.554688 35 34 L 35 26 C 35 22.691406 32.308594 20 29 20 C 27.460938 20 26.0625 20.585938 25 21.539062 L 25 21 C 25 20.445312 24.554688 20 24 20 Z M 21 20 '
                   ></path>
                 </g>
               </svg>
@@ -112,3 +114,11 @@ import Picture from '../core/Picture.astro'
     </div>
   </div>
 </section>
+
+<script type='module'>
+  import { annotate } from 'https://unpkg.com/rough-notation?module'
+  const n1 = document.querySelector('em')
+  console.log({ n1 })
+  const a1 = annotate(n1, { type: 'box', color: 'orange' })
+  a1.show()
+</script>
