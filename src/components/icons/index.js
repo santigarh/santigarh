@@ -6,7 +6,6 @@ import IconTwitter from './IconTwitter.astro'
 import IconArrowRight from './IconArrowRight.astro'
 import IconMenu from './IconMenu.astro'
 import IconArrowDownRight from './IconArrowDownRight.astro'
-import IconSG from './IconSG.astro'
 import IconLinkedIn from './IconLinkedIn.astro'
 import IconMail from './IconMail.astro'
 import IconJS from './IconJS.astro'
@@ -26,7 +25,6 @@ export {
   IconArrowRight,
   IconMenu,
   IconArrowDownRight,
-  IconSG,
   IconLinkedIn,
   IconMail,
   IconJS,
