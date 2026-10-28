@@ -1,0 +1,84 @@
+---
+import { Picture } from 'astro:assets'
+import Button from '../ui/Button.astro'
+import Icon from '../ui/Icon.astro'
+import photo from '../../assets/foto-perfil.jpg'
+import { profile, type Lang } from '../../i18n/ui'
+import { useTranslations } from '../../i18n/utils'
+import { getCv } from '../../lib/cv'
+
+interface Props {
+  lang: Lang
+}
+
+const { lang } = Astro.props
+const t = useTranslations(lang)
+const cv = getCv(lang)
+---
+
+<section class="relative overflow-hidden">
+  <div
+    class="pointer-events-none absolute inset-x-0 -top-40 -z-10 mx-auto h-[28rem] max-w-3xl rounded-full bg-accent/15 blur-3xl"
+    aria-hidden="true"
+  >
+  </div>
+  <div
+    class="mx-auto grid max-w-page items-center gap-10 px-4 pt-12 pb-4 sm:px-6 md:grid-cols-[1fr_auto] md:gap-16 md:pt-20 md:pb-8"
+  >
+    <div class="order-2 md:order-1">
+      <p class="font-mono text-sm text-accent">{t('hero.greeting')}</p>
+      <h1 class="mt-2 text-5xl font-extrabold tracking-tight sm:text-6xl lg:text-7xl">
+        <span class="text-gradient">{t('hero.name')}</span>
+      </h1>
+      <p class="mt-3 text-xl font-semibold text-text sm:text-2xl">{t('hero.role')}</p>
+      <p class="mt-5 max-w-xl text-lg leading-relaxed text-muted">
+        {t('hero.pitch.before')}{' '}
+        <span class="highlight font-medium text-text">{t('hero.pitch.highlight')}</span>{
+          t('hero.pitch.after')
+        }
+      </p>
+      <p class="mt-4 flex items-center gap-2 text-sm text-muted">
+        <Icon name="mapPin" class="size-4 shrink-0" />
+        {t('hero.location')}
+      </p>
+
+      <div class="mt-8 flex flex-wrap items-center gap-3">
+        <Button href="#proyectos" iconEnd="arrowDown">{t('hero.cta.projects')}</Button>
+        {
+          cv && (
+            <Button href={cv.href} variant="secondary" icon="download" download>
+              {cv.label}
+            </Button>
+          )
+        }
+        <div class="flex items-center">
+          <Button href={profile.github} variant="icon" icon="github" external aria-label={t('social.github')} />
+          <Button
+            href={profile.linkedin}
+            variant="icon"
+            icon="linkedin"
+            external
+            aria-label={t('social.linkedin')}
+          />
+        </div>
+      </div>
+    </div>
+
+    <div class="order-1 md:order-2">
+      <div
+        class="mx-auto w-40 rounded-[2rem] bg-linear-to-br from-grad-from to-grad-to p-1 shadow-xl sm:w-52 md:w-72 lg:w-80"
+      >
+        <Picture
+          src={photo}
+          alt={t('hero.photoAlt')}
+          widths={[160, 320, 480, 640]}
+          sizes="(min-width: 1024px) 320px, (min-width: 768px) 288px, (min-width: 640px) 208px, 160px"
+          formats={['avif', 'webp']}
+          loading="eager"
+          fetchpriority="high"
+          class="aspect-square w-full rounded-[1.75rem] object-cover"
+        />
+      </div>
+    </div>
+  </div>
+</section>

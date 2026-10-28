@@ -1,0 +1,12 @@
+name: Mind Racer
+order: 1
+featured: true
+description:
+  es: Juego de carreras donde el auto acelera con cada cálculo mental correcto. Dificultad adaptativa, bots y salas multijugador en tiempo real para jugar con amigos y familia.
+  en: A racing game where your car speeds up with every correct mental math answer. Adaptive difficulty, bots and real-time multiplayer rooms to play with friends and family.
+image: ./mind-racer.png
+imageAlt:
+  es: Pantalla de inicio de Mind Racer con el campo para el nombre del piloto y los niveles Principiante, Intermedio y Avanzado
+  en: Mind Racer start screen with the pilot name field and the Beginner, Intermediate and Advanced levels
+tech: [React, TypeScript, Vite, Node.js, WebSockets]
+repo: https://github.com/santigarh/mind-racer

@@ -1,0 +1,63 @@
+---
+import { Image } from 'astro:assets'
+import { getCollection } from 'astro:content'
+import Icon from '../ui/Icon.astro'
+import Section from '../ui/Section.astro'
+import type { Lang } from '../../i18n/ui'
+import { useTranslations } from '../../i18n/utils'
+
+interface Props {
+  lang: Lang
+}
+
+const { lang } = Astro.props
+const t = useTranslations(lang)
+
+const entries = (await getCollection('education')).sort((a, b) => b.data.year - a.data.year)
+const groups = [
+  { title: t('education.studies'), items: entries.filter((entry) => entry.data.kind === 'study') },
+  { title: t('education.certifications'), items: entries.filter((entry) => entry.data.kind === 'certification') },
+]
+---
+
+<Section id="formacion" title={t('education.title')}>
+  <div class="grid gap-10 lg:grid-cols-2">
+    {
+      groups.map((group) => (
+        <div data-reveal>
+          <h3 class="mb-4 text-sm font-semibold tracking-wide text-muted uppercase">{group.title}</h3>
+          <ul class="space-y-3">
+            {group.items.map(({ data: item }) => (
+              <li class="flex items-center gap-4 rounded-card border border-border bg-surface p-4">
+                <div class="grid size-14 shrink-0 place-items-center overflow-hidden rounded-xl bg-white p-1.5 ring-1 ring-border">
+                  <Image src={item.logo} alt="" width={96} height={96} class="size-full object-contain" />
+                </div>
+                <div class="min-w-0">
+                  <p class="font-semibold text-text">
+                    {item.credentialUrl ? (
+                      <a
+                        href={item.credentialUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="underline decoration-accent/50 underline-offset-4 hover:text-accent"
+                        aria-label={t('education.credential', { name: item.name[lang] })}
+                      >
+                        {item.name[lang]}
+                        <Icon name="external" class="ml-1 inline size-3.5" />
+                      </a>
+                    ) : (
+                      item.name[lang]
+                    )}
+                  </p>
+                  <p class="text-sm text-muted">
+                    {item.institution} <span aria-hidden="true">·</span> {item.start ? `${item.start} – ${item.year}` : item.year}
+                  </p>
+                </div>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))
+    }
+  </div>
+</Section>

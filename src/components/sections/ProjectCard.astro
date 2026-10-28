@@ -1,0 +1,71 @@
+---
+import { Picture } from 'astro:assets'
+import type { CollectionEntry } from 'astro:content'
+import Icon from '../ui/Icon.astro'
+import Tag from '../ui/Tag.astro'
+import type { Lang } from '../../i18n/ui'
+import { useTranslations } from '../../i18n/utils'
+
+interface Props {
+  project: CollectionEntry<'projects'>['data']
+  lang: Lang
+}
+
+const { project, lang } = Astro.props
+const t = useTranslations(lang)
+const link =
+  'inline-flex items-center gap-1.5 rounded-full px-3 py-2 text-sm font-semibold text-accent transition hover:bg-surface-2'
+---
+
+<article
+  class="group flex w-full flex-col overflow-hidden rounded-card border border-border bg-surface transition duration-300 hover:-translate-y-1 hover:border-accent/50 hover:shadow-xl"
+  data-reveal
+>
+  <div class="overflow-hidden border-b border-border bg-surface-2">
+    <Picture
+      src={project.image}
+      alt={project.imageAlt[lang]}
+      widths={[400, 640, 960]}
+      sizes="(min-width: 1024px) 560px, (min-width: 768px) 50vw, 100vw"
+      formats={['avif', 'webp']}
+      class="aspect-[64/25] w-full object-cover object-top transition duration-500 group-hover:scale-[1.03]"
+    />
+  </div>
+  <div class="flex flex-1 flex-col p-6">
+    <h3 class="text-xl font-bold tracking-tight">{project.name}</h3>
+    <p class="mt-2 flex-1 text-muted">{project.description[lang]}</p>
+    <ul class="mt-4 flex flex-wrap gap-2">
+      {project.tech.map((tech) => <Tag>{tech}</Tag>)}
+    </ul>
+    <div class="-mx-3 mt-5 flex flex-wrap gap-1">
+      {
+        project.site && (
+          <a
+            href={project.site}
+            target="_blank"
+            rel="noopener noreferrer"
+            class={link}
+            aria-label={t('projects.live', { name: project.name })}
+          >
+            <Icon name="external" class="size-4" />
+            {t('projects.liveShort')}
+          </a>
+        )
+      }
+      {
+        project.repo && (
+          <a
+            href={project.repo}
+            target="_blank"
+            rel="noopener noreferrer"
+            class={link}
+            aria-label={t('projects.code', { name: project.name })}
+          >
+            <Icon name="code" class="size-4" />
+            {t('projects.codeShort')}
+          </a>
+        )
+      }
+    </div>
+  </div>
+</article>

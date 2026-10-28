@@ -1,0 +1,30 @@
+---
+import { getCollection } from 'astro:content'
+import Section from '../ui/Section.astro'
+import ProjectCard from './ProjectCard.astro'
+import type { Lang } from '../../i18n/ui'
+import { useTranslations } from '../../i18n/utils'
+
+interface Props {
+  lang: Lang
+}
+
+const { lang } = Astro.props
+const t = useTranslations(lang)
+
+const projects = (await getCollection('projects', ({ data }) => data.published)).sort(
+  (a, b) => Number(b.data.featured) - Number(a.data.featured) || a.data.order - b.data.order,
+)
+---
+
+<Section id="proyectos" title={t('projects.title')} intro={t('projects.intro')}>
+  <ul class="grid gap-6 md:grid-cols-2">
+    {
+      projects.map((project) => (
+        <li class="flex">
+          <ProjectCard project={project.data} lang={lang} />
+        </li>
+      ))
+    }
+  </ul>
+</Section>

@@ -1,0 +1,65 @@
+---
+import Button from '../ui/Button.astro'
+import Icon from '../ui/Icon.astro'
+import Section from '../ui/Section.astro'
+import { profile, type Lang } from '../../i18n/ui'
+import { useTranslations } from '../../i18n/utils'
+
+interface Props {
+  lang: Lang
+}
+
+const { lang } = Astro.props
+const t = useTranslations(lang)
+---
+
+<Section id="contacto" title={t('contact.title')} intro={t('contact.intro')}>
+  <div
+    class="flex flex-col gap-6 rounded-card border border-border bg-surface p-6 sm:p-8 md:flex-row md:items-center md:justify-between"
+    data-reveal
+  >
+    <div class="min-w-0">
+      <p class="text-sm font-semibold tracking-wide text-muted uppercase">{t('contact.email')}</p>
+      <div class="mt-2 flex flex-wrap items-center gap-2">
+        <a
+          href={`mailto:${profile.email}`}
+          class="text-xl font-bold break-all text-text hover:text-accent sm:text-2xl"
+        >
+          {profile.email}
+        </a>
+        <button
+          type="button"
+          class="hidden h-9 items-center gap-1.5 rounded-full border border-border px-3 text-sm font-medium text-muted transition hover:border-accent hover:text-accent [.js_&]:inline-flex"
+          data-copy={profile.email}
+          data-copied={t('contact.copied')}
+          data-copy-error={t('contact.copyError')}
+        >
+          <Icon name="copy" class="size-4" />
+          {t('contact.copy')}
+        </button>
+      </div>
+      <p class="mt-2 h-5 text-sm text-accent" role="status" aria-live="polite" data-copy-status></p>
+    </div>
+    <div class="flex flex-wrap items-center gap-3">
+      <Button href={`mailto:${profile.email}`} icon="mail">{t('contact.write')}</Button>
+      <Button href={profile.linkedin} variant="secondary" icon="linkedin" external>LinkedIn</Button>
+      <Button href={profile.github} variant="secondary" icon="github" external>GitHub</Button>
+    </div>
+  </div>
+</Section>
+
+<script>
+  for (const button of document.querySelectorAll<HTMLButtonElement>('[data-copy]')) {
+    const status = button.closest('[data-reveal]')?.querySelector<HTMLElement>('[data-copy-status]')
+    button.addEventListener('click', async () => {
+      if (!status) return
+      try {
+        await navigator.clipboard.writeText(button.dataset.copy ?? '')
+        status.textContent = button.dataset.copied ?? ''
+      } catch {
+        status.textContent = button.dataset.copyError ?? ''
+      }
+      window.setTimeout(() => (status.textContent = ''), 4000)
+    })
+  }
+</script>

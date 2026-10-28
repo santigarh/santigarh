@@ -1,0 +1,11 @@
+name: Buscador de películas
+order: 6
+description:
+  es: Buscador que consume una API de películas y muestra los resultados con su póster y año mientras escribes.
+  en: A search app that queries a movie API and shows results with their poster and year as you type.
+image: ./buscador-peliculas.jpg
+imageAlt:
+  es: Resultados de búsqueda de "batman" con los pósters de seis películas
+  en: Search results for "batman" showing the posters of six movies
+tech: [React, Vite, JavaScript]
+repo: https://github.com/santigarh/BuscadorPeliculas

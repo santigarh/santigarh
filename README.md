@@ -1,69 +1,99 @@
-# Astro Starter Kit: Blog
+# Santigarh · Portafolio
+
+Portafolio personal de Santiago, desarrollador Full Stack. Es un sitio bilingüe: español en `/` e inglés en `/en/`.
+
+Publicado en <https://santigarh.netlify.app>. Hecho con [Astro 7](https://astro.build) y [Tailwind CSS 4](https://tailwindcss.com).
+
+## Requisitos
+
+- Node.js 22.23.4 o superior. La versión está fijada en `.node-version`, así que con `fnm` o `nvm` basta con `fnm use` o `nvm use`.
+
+## Comandos
+
+| Comando           | Qué hace                                            |
+| ----------------- | --------------------------------------------------- |
+| `npm install`     | Instala las dependencias                            |
+| `npm run dev`     | Servidor de desarrollo en `http://localhost:4321`   |
+| `npm run build`   | Genera el sitio en `dist/` y valida el contenido    |
+| `npm run preview` | Sirve `dist/` para revisarlo antes de publicar      |
+| `npm run check`   | Revisa tipos de TypeScript y componentes Astro      |
+
+Netlify compila con `npm run build` (ver `netlify.toml`).
+
+## Estructura
 
 ```
-npm create astro@latest -- --template blog
+src/
+  content/            Contenido del sitio (un YAML por entrada, con sus imágenes al lado)
+    projects/         Proyectos
+    experience/       Puestos de trabajo
+    education/        Estudios y certificaciones
+  content.config.ts   Esquemas que validan el contenido en cada build
+  i18n/ui.ts          Textos de la interfaz en español e inglés, perfil y stack
+  components/         Header, footer, secciones y componentes base (ui/)
+  pages/              index.astro (es) y en/index.astro (en)
+  styles/global.css   Tokens de color, tipografía y utilidades
+public/               favicon, logo, og.png, robots.txt y cv/
 ```
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/blog)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/blog)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/blog/devcontainer.json)
+## Cómo agregar un proyecto, puesto o certificación
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+Cada entrada es un archivo YAML en su carpeta de `src/content/`. No hace falta tocar componentes: la entrada aparece en ambos idiomas en el siguiente build. Si falta un campo obligatorio o un valor no es válido, `npm run build` falla e indica la entrada y el campo.
 
+### Proyecto (`src/content/projects/mi-proyecto.yaml`)
 
-![blog](https://user-images.githubusercontent.com/4677417/186189140-4ef17aac-c3c9-4918-a8c2-ce86ba1bb394.png)
+Guarda la captura junto al YAML. Lo ideal es 1280×500; se recorta desde arriba a esa proporción.
 
-Features:
-
-- ✅ Minimal styling (make it your own!)
-- ✅ 100/100 Lighthouse performance
-- ✅ SEO-friendly with canonical URLs and OpenGraph data
-- ✅ Sitemap support
-- ✅ RSS Feed support
-- ✅ Markdown & MDX support
-
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
-
-```
-├── public/
-├── src/
-│   ├── components/
-│   ├── content/
-│   ├── layouts/
-│   └── pages/
-├── astro.config.mjs
-├── README.md
-├── package.json
-└── tsconfig.json
+```yaml
+name: Mi proyecto
+order: 5              # posición dentro de su grupo (destacados primero)
+featured: true        # opcional, por defecto false
+published: true       # opcional; false lo oculta sin borrarlo
+description:
+  es: Qué hace el proyecto, en una o dos frases.
+  en: What the project does, in one or two sentences.
+image: ./mi-proyecto.png
+imageAlt:
+  es: Qué se ve en la captura
+  en: What the screenshot shows
+tech: [Astro, TypeScript]
+site: https://mi-proyecto.vercel.app       # opcional
+repo: https://github.com/santigarh/mi-proyecto  # opcional (hace falta al menos uno de los dos)
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+### Puesto (`src/content/experience/empresa.yaml`)
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+```yaml
+company: Empresa
+role:
+  es: Desarrollador Full Stack
+  en: Full Stack Developer
+start: 2024-03        # YYYY-MM
+end: 2025-01          # opcional; sin "end" es el puesto actual
+achievements:         # entre 2 y 4
+  - es: Logro concreto, mejor si tiene un resultado medible.
+    en: A concrete achievement, ideally with a measurable result.
+  - es: Otro logro.
+    en: Another achievement.
+tech: [React, .NET]
+```
 
-The `src/content/` directory contains "collections" of related Markdown and MDX documents. Use `getCollection()` to retrieve posts from `src/content/blog/`, and type-check your frontmatter using an optional schema. See [Astro's Content Collections docs](https://docs.astro.build/en/guides/content-collections/) to learn more.
+El periodo ("Mar 2024 – Ene 2025") y la duración se calculan solos en cada idioma.
 
-Any static assets, like images, can be placed in the `public/` directory.
+### Estudio o certificación (`src/content/education/nombre.yaml`)
 
-## 🧞 Commands
+```yaml
+kind: certification   # o "study"
+name:
+  es: Nombre de la certificación
+  en: Certification name
+institution: Plataforma o universidad
+start: 2023           # opcional, para estudios con rango de años
+year: 2024
+logo: ./logo.png      # cuadrado, junto al YAML
+credentialUrl: https://...  # opcional; si existe, el nombre enlaza a la credencial
+```
 
-All commands are run from the root of the project, from a terminal:
+## CV
 
-| Command                | Action                                           |
-| :--------------------- | :----------------------------------------------- |
-| `npm install`          | Installs dependencies                            |
-| `npm run dev`          | Starts local dev server at `localhost:3000`      |
-| `npm run build`        | Build your production site to `./dist/`          |
-| `npm run preview`      | Preview your build locally, before deploying     |
-| `npm run astro ...`    | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Check out [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
-
-## Credit
-
-This theme is based off of the lovely [Bear Blog](https://github.com/HermanMartinus/bearblog/).
+Coloca el PDF en `public/cv/santiago-cv-es.pdf` y, si tienes la versión en inglés, en `public/cv/santiago-cv-en.pdf`. El botón "Descargar CV" del hero aparece solo cuando existe el PDF en español. Si no hay versión en inglés, la página en inglés ofrece la de español con la etiqueta "Download CV (Spanish)".

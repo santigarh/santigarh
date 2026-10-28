@@ -1,0 +1,52 @@
+---
+import { getCollection } from 'astro:content'
+import Section from '../ui/Section.astro'
+import Tag from '../ui/Tag.astro'
+import type { Lang } from '../../i18n/ui'
+import { formatDuration, formatPeriod, useTranslations } from '../../i18n/utils'
+
+interface Props {
+  lang: Lang
+}
+
+const { lang } = Astro.props
+const t = useTranslations(lang)
+
+// Orden cronológico inverso; el puesto actual (sin "end") va primero.
+const jobs = (await getCollection('experience')).sort((a, b) => b.data.start.localeCompare(a.data.start))
+---
+
+<Section id="experiencia" title={t('experience.title')}>
+  <ol class="relative space-y-10 border-l border-border pl-8 sm:ml-2">
+    {
+      jobs.map(({ data: job }) => (
+        <li class="relative" data-reveal>
+          <span
+            class:list={[
+              'absolute top-1.5 -left-[2.4rem] size-3.5 rounded-full border-2 border-bg ring-2',
+              job.end ? 'bg-surface-2 ring-border' : 'bg-accent ring-accent/40',
+            ]}
+            aria-hidden="true"
+          />
+          <div class="flex flex-col gap-1 sm:flex-row sm:items-baseline sm:justify-between sm:gap-6">
+            <h3 class="text-xl font-bold tracking-tight">
+              {job.role[lang]} <span class="text-accent">· {job.company}</span>
+            </h3>
+            <p class="shrink-0 font-mono text-sm text-muted">
+              {formatPeriod(job.start, job.end, lang)} <span aria-hidden="true">·</span>{' '}
+              {formatDuration(job.start, job.end, lang)}
+            </p>
+          </div>
+          <ul class="mt-3 max-w-3xl list-disc space-y-1.5 pl-5 text-muted marker:text-accent">
+            {job.achievements.map((item) => <li>{item[lang]}</li>)}
+          </ul>
+          {job.tech.length > 0 && (
+            <ul class="mt-4 flex flex-wrap gap-2">
+              {job.tech.map((tech) => <Tag>{tech}</Tag>)}
+            </ul>
+          )}
+        </li>
+      ))
+    }
+  </ol>
+</Section>
