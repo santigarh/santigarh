@@ -1,4 +1,3 @@
-# TODO: revisar con el autor (logros con resultados concretos)
 company: Seteinfo
 role:
   es: Desarrollador Full Stack
@@ -6,10 +5,10 @@ role:
 start: 2019-09
 end: 2022-02
 achievements:
-  - es: Integré plataformas de contact center de clientes con Genesys Cloud.
-    en: I integrated client contact center platforms with Genesys Cloud.
-  - es: Desarrollé aplicaciones web con .NET para los clientes de la empresa.
-    en: I built .NET web applications for the company's clients.
+  - es: Desarrollé integraciones con Genesys Cloud para soluciones de contact center y obtuve la certificación profesional de Genesys.
+    en: Built Genesys Cloud integrations for contact center solutions and earned the Genesys professional certification.
+  - es: Construí aplicaciones web en .NET para los clientes de la empresa.
+    en: Built .NET web applications for the company's clients.
   - es: Di soporte a los sistemas en producción.
-    en: I supported the systems running in production.
-tech: [Genesys Cloud, .NET, JavaScript]
+    en: Supported the systems running in production.
+tech: [Genesys Cloud, .NET, C#, JavaScript]

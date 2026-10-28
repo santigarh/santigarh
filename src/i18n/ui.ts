@@ -8,11 +8,12 @@ export type Lang = keyof typeof languages
 export const defaultLang: Lang = 'es'
 
 const es = {
-  'meta.title': 'Santiago · Desarrollador Full Stack (.NET y React)',
+  'meta.title': 'Santiago García Hernández · Desarrollador Full Stack Senior (.NET y React)',
   // TODO: revisar con el autor
   'meta.description':
-    'Portafolio de Santiago, desarrollador Full Stack en Quito, Ecuador. Aplicaciones web con .NET, React y TypeScript para banca, contact centers y productos propios.',
-  'meta.ogAlt': 'Tarjeta con el logo SG, el nombre Santiago, el rol Full Stack Developer y su foto',
+    'Portafolio de Santiago García Hernández, desarrollador Full Stack Senior en Quito, Ecuador. Más de 7 años construyendo software empresarial con .NET Core, React y SQL Server, los últimos 4 en banca.',
+  'meta.ogAlt':
+    'Tarjeta con el logo SG, el nombre Santiago García, el rol Senior Full Stack Developer y su foto',
 
   'skip': 'Saltar al contenido',
   'nav.label': 'Navegación principal',
@@ -31,15 +32,14 @@ const es = {
   'social.linkedin': 'LinkedIn de Santiago',
   'social.email': 'Escribir un correo a Santiago',
 
-  // TODO: revisar con el autor (nombre completo en el h1)
-  'hero.name': 'Santiago',
+  'hero.name': 'Santiago García Hernández',
   'hero.greeting': 'Hola, soy',
-  'hero.role': 'Desarrollador Full Stack · .NET y React',
+  'hero.role': 'Desarrollador Full Stack Senior · .NET Core y React',
   // TODO: revisar con el autor
-  'hero.pitch.before': 'Construyo aplicaciones web',
+  'hero.pitch.before': 'Construyo software empresarial',
   'hero.pitch.highlight': 'de punta a punta',
   'hero.pitch.after':
-    ': desde la API en .NET hasta la interfaz en React. Hoy en banca; antes en contact centers y, en mi tiempo libre, productos propios.',
+    ': microservicios en .NET Core, interfaces en React y bases de datos en SQL Server. Más de 7 años de experiencia, los últimos 4 en banca.',
   'hero.location': 'Quito, Ecuador · Abierto a trabajo remoto',
   'hero.photoAlt': 'Foto de Santiago sonriendo, con camisa blanca y saco gris',
   'hero.cta.projects': 'Ver proyectos',
@@ -59,15 +59,16 @@ const es = {
   'about.title': 'Sobre mí',
   // TODO: revisar con el autor
   'about.p1':
-    'Soy ingeniero en Sistemas por la ESPE y tengo un máster en DevOps por UNIR. Desde 2022 trabajo en Banco Solidario construyendo aplicaciones web con .NET y React.',
+    'Soy ingeniero en Sistemas de la ESPE y tengo un máster en DevOps en UNIR. Desde 2022 trabajo en Banco Solidario, en el equipo que desarrolla la nueva Suite de Créditos: microservicios en .NET Core, frontend en React, SQL Server, flujos en Camunda y despliegues en OpenShift con Azure DevOps. He liderado pasos a producción bajo control de cambios, coordinando con QA, infraestructura y negocio.',
   // TODO: revisar con el autor
   'about.p2':
-    'Antes integré plataformas de contact center con Genesys Cloud en Seteinfo y desarrollé aplicaciones web y móviles como freelancer. Fuera del trabajo construyo productos propios, como Mind Racer y Acordify, para probar herramientas nuevas en proyectos reales.',
+    'Antes integré soluciones de contact center con Genesys Cloud en Seteinfo, desarrollé aplicaciones web y móviles como freelancer y construí un sistema experto de realidad virtual en Unity en el CICTE de la ESPE. Fuera del trabajo creo productos propios, como Mind Racer y Acordify, para probar herramientas nuevas en proyectos reales.',
   'about.stack': 'Stack',
   'stack.frontend': 'Frontend',
-  'stack.backend': 'Backend y datos',
-  'stack.devops': 'DevOps y nube',
-  'stack.integrations': 'Integraciones',
+  'stack.backend': 'Backend',
+  'stack.data': 'Bases de datos',
+  'stack.devops': 'DevOps',
+  'stack.integrations': 'Integración y procesos',
 
   'education.title': 'Formación',
   'education.studies': 'Estudios',
@@ -89,11 +90,12 @@ const es = {
 export type UiKey = keyof typeof es
 
 const en: Record<UiKey, string> = {
-  'meta.title': 'Santiago · Full Stack Developer (.NET & React)',
+  'meta.title': 'Santiago García Hernández · Senior Full Stack Developer (.NET & React)',
   // TODO: revisar con el autor
   'meta.description':
-    'Portfolio of Santiago, a Full Stack developer based in Quito, Ecuador. Web applications with .NET, React and TypeScript for banking, contact centers and personal products.',
-  'meta.ogAlt': 'Card with the SG logo, the name Santiago, the role Full Stack Developer and a photo of Santiago',
+    'Portfolio of Santiago García Hernández, a Senior Full Stack developer based in Quito, Ecuador. 7+ years building enterprise software with .NET Core, React and SQL Server, the last 4 in banking.',
+  'meta.ogAlt':
+    'Card with the SG logo, the name Santiago García, the role Senior Full Stack Developer and a photo of Santiago',
 
   'skip': 'Skip to content',
   'nav.label': 'Main navigation',
@@ -112,15 +114,14 @@ const en: Record<UiKey, string> = {
   'social.linkedin': "Santiago's LinkedIn",
   'social.email': 'Email Santiago',
 
-  // TODO: revisar con el autor (nombre completo en el h1)
-  'hero.name': 'Santiago',
+  'hero.name': 'Santiago García Hernández',
   'hero.greeting': "Hi, I'm",
-  'hero.role': 'Full Stack Developer · .NET & React',
+  'hero.role': 'Senior Full Stack Developer · .NET Core & React',
   // TODO: revisar con el autor
-  'hero.pitch.before': 'I build web applications',
+  'hero.pitch.before': 'I build enterprise software',
   'hero.pitch.highlight': 'end to end',
   'hero.pitch.after':
-    ': from .NET APIs to React interfaces. Currently in banking; before that in contact centers and, in my spare time, my own products.',
+    ': .NET Core microservices, React interfaces and SQL Server databases. 7+ years of experience, the last 4 in banking.',
   'hero.location': 'Quito, Ecuador · Open to remote work',
   'hero.photoAlt': 'Photo of Santiago smiling, wearing a white shirt and a grey blazer',
   'hero.cta.projects': 'View projects',
@@ -140,15 +141,16 @@ const en: Record<UiKey, string> = {
   'about.title': 'About me',
   // TODO: revisar con el autor
   'about.p1':
-    "I'm a Systems Engineer from ESPE with a master's degree in DevOps from UNIR. Since 2022 I've been building web applications with .NET and React at Banco Solidario.",
+    "I'm a Systems Engineer from ESPE with a master's degree in DevOps from UNIR. Since 2022 I've been at Banco Solidario, on the team building the new Credit Suite: .NET Core microservices, a React frontend, SQL Server, Camunda workflows and OpenShift deployments with Azure DevOps. I've led production releases under change control, coordinating with QA, infrastructure and business teams.",
   // TODO: revisar con el autor
   'about.p2':
-    'Before that I integrated contact center platforms with Genesys Cloud at Seteinfo and built web and mobile apps as a freelancer. Outside work I build my own products, like Mind Racer and Acordify, to try new tools on real projects.',
+    'Before that I integrated contact center solutions with Genesys Cloud at Seteinfo, built web and mobile apps as a freelancer, and developed a virtual reality expert system in Unity at ESPE’s CICTE research center. Outside work I build my own products, like Mind Racer and Acordify, to try new tools on real projects.',
   'about.stack': 'Stack',
   'stack.frontend': 'Frontend',
-  'stack.backend': 'Backend & data',
-  'stack.devops': 'DevOps & cloud',
-  'stack.integrations': 'Integrations',
+  'stack.backend': 'Backend',
+  'stack.data': 'Databases',
+  'stack.devops': 'DevOps',
+  'stack.integrations': 'Integration & processes',
 
   'education.title': 'Education',
   'education.studies': 'Degrees',
@@ -176,10 +178,11 @@ export const profile = {
   linkedin: 'https://www.linkedin.com/in/santigarh/',
 }
 
-// TODO: revisar con el autor
+// Competencias técnicas del CV, más lo que usan los proyectos propios.
 export const stack: { group: UiKey; items: string[] }[] = [
-  { group: 'stack.frontend', items: ['React', 'TypeScript', 'JavaScript', 'Astro', 'Next.js', 'Tailwind CSS'] },
-  { group: 'stack.backend', items: ['.NET Core', 'C#', 'Node.js', 'Hono', 'PostgreSQL', 'Supabase'] },
-  { group: 'stack.devops', items: ['Git', 'GitHub', 'CI/CD', 'Vercel', 'Netlify', 'Cloudflare'] },
-  { group: 'stack.integrations', items: ['Genesys Cloud', 'REST', 'WebSockets'] },
+  { group: 'stack.backend', items: ['C#', '.NET Core', 'ASP.NET Core Web API', 'REST', 'Dapper', 'Node.js'] },
+  { group: 'stack.frontend', items: ['React', 'TypeScript', 'JavaScript', 'Tailwind CSS', 'Astro', 'Next.js'] },
+  { group: 'stack.data', items: ['SQL Server', 'PostgreSQL', 'MySQL', 'MongoDB'] },
+  { group: 'stack.devops', items: ['Azure DevOps', 'CI/CD', 'Docker', 'OpenShift', 'Git', 'GitHub'] },
+  { group: 'stack.integrations', items: ['Camunda BPM', 'BPMN', 'DMN', 'WSO2 ESB', 'Genesys Cloud', 'SharePoint'] },
 ]
