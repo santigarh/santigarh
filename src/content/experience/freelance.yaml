@@ -1,0 +1,13 @@
+# TODO: revisar con el autor (clientes o proyectos destacados)
+company: Freelance
+role:
+  es: Desarrollador Full Stack
+  en: Full Stack Developer
+start: 2018-06
+end: 2019-09
+achievements:
+  - es: Desarrollé aplicaciones web a medida con React.
+    en: I built custom web applications with React.
+  - es: Desarrollé aplicaciones móviles multiplataforma con Flutter.
+    en: I built cross-platform mobile apps with Flutter.
+tech: [React, Flutter]

@@ -1,0 +1,50 @@
+---
+import Icon from './ui/Icon.astro'
+import LangSwitch from './LangSwitch.astro'
+import { profile, type Lang } from '../i18n/ui'
+import { useTranslations } from '../i18n/utils'
+
+interface Props {
+  lang: Lang
+}
+
+const { lang } = Astro.props
+const t = useTranslations(lang)
+const year = new Date().getFullYear()
+
+const socials = [
+  { href: profile.github, label: t('social.github'), icon: 'github', external: true },
+  { href: profile.linkedin, label: t('social.linkedin'), icon: 'linkedin', external: true },
+  { href: `mailto:${profile.email}`, label: t('social.email'), icon: 'mail', external: false },
+] as const
+---
+
+<footer class="border-t border-border">
+  <div
+    class="mx-auto flex max-w-page flex-col items-center justify-between gap-4 px-4 py-8 text-sm text-muted sm:flex-row sm:px-6"
+  >
+    <div class="text-center sm:text-left">
+      <p class="font-medium text-text">© {year} Santiago · Santigarh</p>
+      <p>{t('footer.rights')}</p>
+    </div>
+    <ul class="flex items-center gap-1">
+      {
+        socials.map((social) => (
+          <li>
+            <a
+              href={social.href}
+              aria-label={social.label}
+              class="inline-flex size-11 items-center justify-center rounded-full transition hover:bg-surface-2 hover:text-text"
+              {...(social.external && { target: '_blank', rel: 'noopener noreferrer' })}
+            >
+              <Icon name={social.icon} />
+            </a>
+          </li>
+        ))
+      }
+      <li>
+        <LangSwitch lang={lang} />
+      </li>
+    </ul>
+  </div>
+</footer>

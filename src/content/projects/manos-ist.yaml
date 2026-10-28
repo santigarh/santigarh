@@ -1,0 +1,12 @@
+name: manos IST
+order: 3
+featured: true
+description:
+  es: Directorio donde los miembros de una congregación encuentran servicios, productos y oficios de otros miembros. Búsqueda de texto completo, contacto por WhatsApp y panel con estadísticas y códigos QR.
+  en: A directory where members of a congregation find services, products and trades offered by other members. Full-text search, WhatsApp contact and an admin panel with stats and QR codes.
+image: ./manos-ist.png
+imageAlt:
+  es: Inicio de manos IST con el buscador "¿Qué necesitas hoy?" y tarjetas de categorías de servicios
+  en: manos IST home page with the "What do you need today?" search box and service category cards
+tech: [Next.js, Supabase, Tailwind CSS, TypeScript]
+site: https://directorio-iglesia.vercel.app

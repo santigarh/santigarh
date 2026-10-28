@@ -1,0 +1,12 @@
+name: Acordify
+order: 2
+featured: true
+description:
+  es: Cancionero digital para músicos con canciones en formato ChordPro, transposición al instante, setlists compartidos y modo presentación. Se instala como app y funciona sin conexión.
+  en: A digital songbook for musicians with ChordPro songs, instant transposition, shared setlists and a presentation mode. Installable as an app and works offline.
+image: ./acordify.png
+imageAlt:
+  es: Página de inicio de Acordify con el título "Tu música merece un escenario digital" y el botón Comenzar gratis
+  en: Acordify landing page with the headline "Your music deserves a digital stage" and the Start for free button
+tech: [React, TypeScript, Hono, Drizzle, PostgreSQL]
+site: https://acordify-web.vercel.app

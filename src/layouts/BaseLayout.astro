@@ -1,22 +1,54 @@
 ---
-import '../assets/styles/base.css'
+import '../styles/global.css'
+import interFont from '@fontsource-variable/inter/files/inter-latin-wght-normal.woff2?url'
+import Seo from '../components/Seo.astro'
+import Header from '../components/Header.astro'
+import Footer from '../components/Footer.astro'
+import type { Lang } from '../i18n/ui'
+import { useTranslations } from '../i18n/utils'
 
-import MetaTags from '../components/core/MetaTags.astro'
-import BasicScripts from '../components/core/BasicScripts.astro'
+interface Props {
+  lang: Lang
+}
 
-const { meta = {} } = Astro.props
+const { lang } = Astro.props
+const t = useTranslations(lang)
 ---
 
-<!DOCTYPE html>
-<html lang="es">
+<!doctype html>
+<html lang={lang}>
   <head>
-    <MetaTags {...meta} />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- Tema antes del primer pintado (design D5) -->
+    <script is:inline>
+      ;(() => {
+        const root = document.documentElement
+        root.classList.add('js')
+        let theme = null
+        try {
+          theme = localStorage.getItem('theme')
+        } catch {}
+        if (theme !== 'light' && theme !== 'dark') {
+          theme = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
+        }
+        root.classList.toggle('dark', theme === 'dark')
+      })()
+    </script>
+    <link rel="preload" href={interFont} as="font" type="font/woff2" crossorigin />
+    <Seo lang={lang} title={t('meta.title')} description={t('meta.description')} />
   </head>
-
-  <body
-    class="antialiased text-gray-900 dark:text-slate-300 tracking-tight dark:bg-[#19323c]"
-  >
-    <slot />
-    <BasicScripts />
+  <body class="min-h-dvh">
+    <a
+      href="#contenido"
+      class="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-50 focus:rounded-lg focus:bg-accent focus:px-4 focus:py-2 focus:text-on-accent"
+    >
+      {t('skip')}
+    </a>
+    <Header lang={lang} />
+    <main id="contenido">
+      <slot />
+    </main>
+    <Footer lang={lang} />
   </body>
 </html>

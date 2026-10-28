@@ -1,0 +1,189 @@
+---
+import Icon from './ui/Icon.astro'
+import LangSwitch from './LangSwitch.astro'
+import { profile, type Lang } from '../i18n/ui'
+import { homePath, useTranslations } from '../i18n/utils'
+
+interface Props {
+  lang: Lang
+}
+
+const { lang } = Astro.props
+const t = useTranslations(lang)
+
+const links = [
+  { href: '#proyectos', label: t('nav.projects') },
+  { href: '#experiencia', label: t('nav.experience') },
+  { href: '#sobre-mi', label: t('nav.about') },
+  { href: '#contacto', label: t('nav.contact') },
+]
+
+const navLink =
+  'rounded-full px-3 py-2 text-sm font-medium text-muted transition hover:text-text aria-[current=true]:bg-surface-2 aria-[current=true]:text-text'
+---
+
+<header class="sticky top-0 z-40 border-b border-border bg-header backdrop-blur-md">
+  <div class="mx-auto flex h-header max-w-page items-center justify-between gap-4 px-4 sm:px-6">
+    <a href={homePath(lang)} class="flex items-center rounded-md p-1 text-text">
+      <span class="logo-mask block h-7 w-11" aria-hidden="true"></span>
+      <span class="sr-only">{t('nav.home')}</span>
+    </a>
+
+    <nav aria-label={t('nav.label')} class="hidden md:block">
+      <ul class="flex items-center gap-1">
+        {
+          links.map((link) => (
+            <li>
+              <a href={link.href} class={navLink} data-nav-link>
+                {link.label}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </nav>
+
+    <div class="flex items-center gap-1">
+      <div class="hidden sm:block">
+        <LangSwitch lang={lang} />
+      </div>
+      <button
+        type="button"
+        class="inline-flex size-11 items-center justify-center rounded-full text-muted transition hover:bg-surface-2 hover:text-text"
+        aria-label={t('theme.toggle')}
+        data-theme-toggle
+      >
+        <Icon name="moon" class="size-5 dark:hidden" />
+        <Icon name="sun" class="hidden size-5 dark:block" />
+      </button>
+      <a
+        href={profile.github}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="hidden size-11 items-center justify-center rounded-full text-muted transition hover:bg-surface-2 hover:text-text md:inline-flex"
+        aria-label={t('social.github')}
+      >
+        <Icon name="github" />
+      </a>
+      <a
+        href={profile.linkedin}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="hidden size-11 items-center justify-center rounded-full text-muted transition hover:bg-surface-2 hover:text-text md:inline-flex"
+        aria-label={t('social.linkedin')}
+      >
+        <Icon name="linkedin" />
+      </a>
+      <button
+        type="button"
+        class="hidden size-11 items-center justify-center rounded-full text-text transition hover:bg-surface-2 md:hidden! [.js_&]:inline-flex"
+        aria-controls="menu-movil"
+        aria-expanded="false"
+        aria-label={t('nav.openMenu')}
+        data-label-open={t('nav.openMenu')}
+        data-label-close={t('nav.closeMenu')}
+        data-menu-button
+      >
+        <Icon name="menu" class="size-6 [[aria-expanded=true]>&]:hidden" />
+        <Icon name="close" class="hidden size-6 [[aria-expanded=true]>&]:block" />
+      </button>
+    </div>
+  </div>
+
+  <nav id="menu-movil" aria-label={t('nav.label')} class="border-t border-border md:hidden" hidden>
+    <ul class="mx-auto flex max-w-page flex-col gap-1 px-4 py-4 sm:px-6">
+      {
+        links.map((link) => (
+          <li>
+            <a href={link.href} class={`${navLink} block text-base`} data-nav-link>
+              {link.label}
+            </a>
+          </li>
+        ))
+      }
+      <li class="mt-2 flex items-center gap-2 border-t border-border pt-4">
+        <LangSwitch lang={lang} />
+        <a
+          href={profile.github}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex size-11 items-center justify-center rounded-full text-muted hover:bg-surface-2 hover:text-text"
+          aria-label={t('social.github')}
+        >
+          <Icon name="github" />
+        </a>
+        <a
+          href={profile.linkedin}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex size-11 items-center justify-center rounded-full text-muted hover:bg-surface-2 hover:text-text"
+          aria-label={t('social.linkedin')}
+        >
+          <Icon name="linkedin" />
+        </a>
+      </li>
+    </ul>
+  </nav>
+</header>
+
+<script>
+  // Tema (design D5): el script del <head> ya aplicó la clase; aquí solo se cambia y se guarda.
+  for (const button of document.querySelectorAll('[data-theme-toggle]')) {
+    button.addEventListener('click', () => {
+      const dark = document.documentElement.classList.toggle('dark')
+      try {
+        localStorage.setItem('theme', dark ? 'dark' : 'light')
+      } catch {}
+    })
+  }
+
+  // Menú móvil (design D7)
+  const menuButton = document.querySelector<HTMLButtonElement>('[data-menu-button]')
+  const menu = document.getElementById('menu-movil')
+
+  if (menuButton && menu) {
+    const setOpen = (open: boolean) => {
+      menuButton.setAttribute('aria-expanded', String(open))
+      menuButton.setAttribute('aria-label', (open ? menuButton.dataset.labelClose : menuButton.dataset.labelOpen) ?? '')
+      menu.hidden = !open
+    }
+    menuButton.addEventListener('click', () => setOpen(menuButton.getAttribute('aria-expanded') !== 'true'))
+    menu.addEventListener('click', (event) => {
+      if ((event.target as Element).closest('a[href^="#"]')) setOpen(false)
+    })
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && menuButton.getAttribute('aria-expanded') === 'true') {
+        setOpen(false)
+        menuButton.focus()
+      }
+    })
+    matchMedia('(min-width: 768px)').addEventListener('change', (event) => {
+      if (event.matches) setOpen(false)
+    })
+  }
+
+  // Sección activa (design D7): la sección que cruza el centro de la ventana marca su enlace.
+  const navLinks = [...document.querySelectorAll<HTMLAnchorElement>('[data-nav-link]')]
+  const sections = navLinks
+    .map((link) => document.getElementById(link.hash.slice(1)))
+    .filter((section, index, all): section is HTMLElement => !!section && all.indexOf(section) === index)
+
+  const setActive = (id: string | null) => {
+    document.documentElement.dataset.activeSection = id ?? ''
+    for (const link of navLinks) {
+      if (link.hash === `#${id}`) link.setAttribute('aria-current', 'true')
+      else link.removeAttribute('aria-current')
+    }
+  }
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      for (const entry of entries) {
+        if (entry.isIntersecting) setActive(entry.target.id)
+        else if (document.documentElement.dataset.activeSection === entry.target.id) setActive(null)
+      }
+    },
+    { rootMargin: '-50% 0px -50% 0px' },
+  )
+  for (const section of sections) observer.observe(section)
+</script>

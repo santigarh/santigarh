@@ -1,0 +1,35 @@
+---
+import Icon from './ui/Icon.astro'
+import type { Lang } from '../i18n/ui'
+import { homePath, useTranslations } from '../i18n/utils'
+
+interface Props {
+  lang: Lang
+}
+
+const { lang } = Astro.props
+const t = useTranslations(lang)
+const other: Lang = lang === 'es' ? 'en' : 'es'
+---
+
+<a
+  href={homePath(other)}
+  hreflang={other}
+  lang={other}
+  title={t('lang.switchLabel')}
+  class="inline-flex h-11 items-center gap-1.5 rounded-full px-3 text-sm font-medium text-muted transition hover:bg-surface-2 hover:text-text"
+  data-lang-switch
+>
+  <Icon name="globe" class="size-4" />
+  {t('lang.switch')}
+</a>
+
+<script>
+  // Al cambiar de idioma se conserva la sección: la del #hash o la que está en pantalla (spec i18n).
+  for (const link of document.querySelectorAll<HTMLAnchorElement>('[data-lang-switch]')) {
+    link.addEventListener('click', () => {
+      const section = document.documentElement.dataset.activeSection || location.hash.slice(1)
+      link.hash = section ? `#${section}` : ''
+    })
+  }
+</script>

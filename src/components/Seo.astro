@@ -1,0 +1,57 @@
+---
+import { languages, type Lang } from '../i18n/ui'
+import { homePath, useTranslations } from '../i18n/utils'
+
+interface Props {
+  lang: Lang
+  title: string
+  description: string
+}
+
+const { lang, title, description } = Astro.props
+const t = useTranslations(lang)
+const site = Astro.site!
+const canonical = new URL(Astro.url.pathname, site).href
+const ogImage = new URL('/og.png', site).href
+const ogLocales: Record<Lang, string> = { es: 'es_EC', en: 'en_US' }
+const alternates = (Object.keys(languages) as Lang[]).map((code) => ({
+  code,
+  href: new URL(homePath(code), site).href,
+}))
+---
+
+<title>{title}</title>
+<meta name="description" content={description} />
+<link rel="canonical" href={canonical} />
+{alternates.map(({ code, href }) => <link rel="alternate" hreflang={code} href={href} />)}
+<link rel="alternate" hreflang="x-default" href={new URL('/', site).href} />
+
+<link rel="icon" type="image/png" href="/favicon.png" />
+<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+<link rel="sitemap" href="/sitemap-index.xml" />
+<meta name="theme-color" content="#0b1220" media="(prefers-color-scheme: dark)" />
+<meta name="theme-color" content="#f7f9fc" media="(prefers-color-scheme: light)" />
+
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Santigarh" />
+<meta property="og:url" content={canonical} />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:locale" content={ogLocales[lang]} />
+{
+  (Object.keys(languages) as Lang[])
+    .filter((code) => code !== lang)
+    .map((code) => <meta property="og:locale:alternate" content={ogLocales[code]} />)
+}
+<meta property="og:image" content={ogImage} />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content={t('meta.ogAlt')} />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={ogImage} />
+<meta name="twitter:image:alt" content={t('meta.ogAlt')} />
+
+<meta name="google-site-verification" content="orcPxI47GSa-cRvY11tUe6iGg2IO_RPvnA1q95iEM3M" />

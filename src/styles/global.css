@@ -1,67 +1,138 @@
+@import 'tailwindcss';
+@import '@fontsource-variable/inter';
+@import '@fontsource-variable/jetbrains-mono';
+
+@custom-variant dark (&:where(.dark, .dark *));
+
 /*
-  The CSS in this style tag is based off of Bear Blog's default CSS.
-  https://github.com/HermanMartinus/bearblog/blob/297026a877bc2ab2b3bdfbd6b9f7961c350917dd/templates/styles/blog/default.css
-  License MIT: https://github.com/HermanMartinus/bearblog/blob/master/LICENSE.md
- */
-body {
-	font-family: Verdana, sans-serif;
-	margin: auto;
-	padding: 20px;
-	max-width: 65ch;
-	text-align: left;
-	background-color: #fff;
-	word-wrap: break-word;
-	overflow-wrap: break-word;
-	line-height: 1.5;
-	color: #444;
+  Paleta (design D4). Contraste WCAG verificado en ambos temas:
+  oscuro  text/bg 15.7, muted/bg 8.5, accent/bg 6.8, muted/surface-2 6.9,
+          accent/surface-2 5.5, grad-from/surface-2 4.6, on-accent/accent 6.8
+  claro   text/bg 17.8, muted/bg 7.4, accent/bg 6.4, muted/surface-2 6.9,
+          accent/surface-2 5.9, grad-to/surface-2 3.9, on-accent/accent 6.7
+  Texto normal >= 4.5:1; el degradado solo se usa en títulos grandes (>= 3:1).
+*/
+:root {
+  color-scheme: light;
+  --c-bg: #f7f9fc;
+  --c-surface: #ffffff;
+  --c-surface-2: #edf1f7;
+  --c-border: #dbe2ee;
+  --c-text: #0b1220;
+  --c-muted: #475269;
+  --c-accent: #0050d6;
+  --c-on-accent: #ffffff;
+  --c-grad-from: #0050d6;
+  --c-grad-to: #00849e;
+  --c-header: rgb(247 249 252 / 0.85);
 }
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-strong,
-b {
-	color: #222;
+
+:root.dark {
+  color-scheme: dark;
+  --c-bg: #0b1220;
+  --c-surface: #121b2f;
+  --c-surface-2: #1a2540;
+  --c-border: #24314f;
+  --c-text: #e6ebf5;
+  --c-muted: #a3afc4;
+  --c-accent: #5b9bff;
+  --c-on-accent: #0b1220;
+  --c-grad-from: #3d8bff;
+  --c-grad-to: #60efff;
+  --c-header: rgb(11 18 32 / 0.85);
 }
-a {
-	color: #3273dc;
+
+@theme inline {
+  --color-bg: var(--c-bg);
+  --color-surface: var(--c-surface);
+  --color-surface-2: var(--c-surface-2);
+  --color-border: var(--c-border);
+  --color-text: var(--c-text);
+  --color-muted: var(--c-muted);
+  --color-accent: var(--c-accent);
+  --color-on-accent: var(--c-on-accent);
+  --color-grad-from: var(--c-grad-from);
+  --color-grad-to: var(--c-grad-to);
+  --color-header: var(--c-header);
 }
-nav a {
-	margin-right: 10px;
+
+/* Respaldo con las métricas de Inter: el texto no cambia de tamaño cuando llega la fuente (CLS). */
+@font-face {
+  font-family: 'Inter Fallback';
+  src: local('Arial');
+  ascent-override: 90.49%;
+  descent-override: 22.56%;
+  line-gap-override: 0%;
+  size-adjust: 107.06%;
 }
-textarea {
-	width: 100%;
-	font-size: 16px;
+
+@theme {
+  --font-sans: 'Inter Variable', 'Inter Fallback', ui-sans-serif, system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono Variable', ui-monospace, monospace;
+  --container-page: 72rem;
+  --radius-card: 1rem;
+  --spacing-header: 4rem;
 }
-input {
-	font-size: 16px;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    @apply bg-bg text-text font-sans antialiased;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--c-accent);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
 }
-content {
-	line-height: 1.6;
+
+@utility text-gradient {
+  background-image: linear-gradient(90deg, var(--c-grad-from), var(--c-grad-to));
+  background-clip: text;
+  color: transparent;
 }
-table {
-	width: 100%;
+
+/* Resaltado del hero (design D6): parte del propio texto, así nunca se desalinea. */
+@utility highlight {
+  background-image: linear-gradient(
+    to top,
+    color-mix(in oklab, var(--c-accent) 28%, transparent) 0.4em,
+    transparent 0.4em
+  );
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+  padding-inline: 0.1em;
 }
-img {
-	max-width: 100%;
-	height: auto;
+
+@utility logo-mask {
+  background-color: currentColor;
+  mask: url('/logo-sg.png') center / contain no-repeat;
+  -webkit-mask: url('/logo-sg.png') center / contain no-repeat;
 }
-code {
-	padding: 2px 5px;
-	background-color: #f2f2f2;
-}
-pre {
-	padding: 1rem;
-}
-pre > code {
-	all: unset;
-}
-blockquote {
-	border: 1px solid #999;
-	color: #222;
-	padding: 2px 0px 2px 20px;
-	margin: 0px;
-	font-style: italic;
+
+/* Animación de entrada (design D7): solo con JS y sin "reducir movimiento". */
+@media (prefers-reduced-motion: no-preference) {
+  .js [data-reveal] {
+    opacity: 0;
+    transform: translateY(1rem);
+    transition:
+      opacity 0.6s ease,
+      transform 0.6s ease;
+  }
+
+  .js [data-reveal].is-visible {
+    opacity: 1;
+    transform: none;
+  }
 }

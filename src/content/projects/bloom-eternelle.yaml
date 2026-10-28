@@ -1,0 +1,12 @@
+name: Bloom Eternelle
+order: 4
+featured: true
+description:
+  es: Landing page para una tienda de arreglos de flores eternas hechos a mano, con catálogo, personalizador de ramos y pedidos directos por WhatsApp.
+  en: Landing page for a shop of handmade preserved flower arrangements, with a catalog, a bouquet customizer and direct WhatsApp orders.
+image: ./bloom-eternelle.png
+imageAlt:
+  es: Portada de Bloom Eternelle en tonos rosados con el nombre de la tienda y el botón para ver el catálogo
+  en: Bloom Eternelle hero in pink tones with the shop name and the button to view the catalog
+tech: [React, TypeScript, Vite]
+site: https://bloom-eternelle.vercel.app

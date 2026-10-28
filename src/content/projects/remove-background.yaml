@@ -1,0 +1,11 @@
+name: Remove Background
+order: 5
+description:
+  es: Herramienta para quitar el fondo de cualquier imagen con Cloudinary y comparar el antes y el después.
+  en: A tool that removes the background from any image with Cloudinary and compares the before and after.
+image: ./remove-background.png
+imageAlt:
+  es: Retrato con el fondo quitado a la mitad y un control deslizante para comparar con la imagen original
+  en: Portrait with half of the background removed and a slider to compare it with the original image
+tech: [Svelte, TypeScript, Tailwind CSS, Cloudinary]
+repo: https://github.com/santigarh/removeBG
