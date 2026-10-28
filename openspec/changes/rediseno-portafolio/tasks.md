@@ -6,7 +6,7 @@
 - [x] 1.2 Actualizar `package.json`: `astro` 7.x, `@astrojs/sitemap`, `tailwindcss` 4.x, `@tailwindcss/vite`, `@fontsource-variable/inter` y `@fontsource-variable/jetbrains-mono`. Quitar `@astrojs/image`, `@astrojs/mdx`, `@astrojs/rss`, `@astrojs/tailwind`, `@fontsource/overpass`, `react-rough-notation` y `rough-notation`. Verificar que `npm install` termina sin errores de dependencias.
 - [x] 1.3 Reescribir `astro.config.mjs` con `site: 'https://santigarh.netlify.app'`, `i18n` (es por defecto y sin prefijo, más en), el plugin Vite de Tailwind y `sitemap` con `i18n`. Borrar `tailwind.config.cjs`. Verificar que `npx astro check` no reporta errores de configuración.
 - [x] 1.4 Eliminar lo que no se usa: `src/pages/rss.xml.js`, la colección `blog` de `src/content/config.ts`, `src/styles/global.css`, `src/consts.ts`, los íconos sin usar de `src/components/icons/`, `foto-perfil.jpeg` y `foto-perfil.png` (queda una sola foto), `public/placeholder-*.jpg` y los utils de `@astrojs/image`. Verificar con `rg -i "danik|rough-notation|@astrojs/image|UA-205494740"` en `src/` que no queda nada.
-- [ ] 1.5 Agregar `.node-version` (`22.23.4`) y `netlify.toml` con `command = "npm run build"`, `publish = "dist"` y `NODE_VERSION = "22.23.4"`. Verificar que el *deploy preview* del PR compila en Netlify.
+- [x] 1.5 Agregar `.node-version` (`22.23.4`) y `netlify.toml` con `command = "npm run build"`, `publish = "dist"` y `NODE_VERSION = "22.23.4"`. Verificar que el *deploy preview* del PR compila en Netlify.
 - [x] 1.6 Verificar que `npm run build` termina con éxito en Windows: el error `Invalid URL` de `@astrojs/image` ya no aparece.
 
 ## 2. Identidad visual y layout base

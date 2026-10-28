@@ -1,12 +1,15 @@
-# TODO: revisar con el autor (cargo exacto y logros con resultados concretos)
 company: Banco Solidario
 role:
-  es: Ingeniero de Desarrollo
-  en: Software Development Engineer
+  es: Desarrollador Full Stack Senior
+  en: Senior Full Stack Developer
 start: 2022-02
 achievements:
-  - es: Desarrollo y mantengo aplicaciones web del banco de punta a punta, desde las APIs en .NET Core hasta las interfaces en React.
-    en: I build and maintain the bank's web applications end to end, from .NET Core APIs to React interfaces.
-  - es: Trabajo con los equipos de negocio para convertir procesos internos en herramientas digitales.
-    en: I work with business teams to turn internal processes into digital tools.
-tech: [.NET Core, C#, React, JavaScript]
+  - es: Desarrollo y puesta en producción de la Suite de Créditos, la plataforma de originación de créditos con canal web y app móvil.
+    en: Built and shipped the Credit Suite, the bank's loan origination platform with web and mobile app channels.
+  - es: Coordiné el control de cambios del paso a producción de 12 bases de datos, más de 50 microservicios, 15 flujos BPMN y 27 matrices DMN.
+    en: Coordinated change control for the production release of 12 databases, 50+ microservices, 15 BPMN workflows and 27 DMN decision tables.
+  - es: Depuré y refactoricé stored procedures de SQL Server con manejo de transacciones, idempotencia, referencias entre bases y eliminación de datos duplicados.
+    en: Debugged and refactored SQL Server stored procedures, covering transaction handling, idempotency, cross-database references and duplicate data removal.
+  - es: Desarrollé el módulo de otorgamiento, donde los analistas de crédito aprueban las solicitudes.
+    en: Developed the loan granting module, where credit analysts approve applications.
+tech: [.NET Core, C#, React, SQL Server, Camunda, OpenShift, Azure DevOps]

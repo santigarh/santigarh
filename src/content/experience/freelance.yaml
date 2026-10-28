@@ -1,4 +1,3 @@
-# TODO: revisar con el autor (clientes o proyectos destacados)
 company: Freelance
 role:
   es: Desarrollador Full Stack
@@ -6,8 +5,8 @@ role:
 start: 2018-06
 end: 2019-09
 achievements:
-  - es: Desarrollé aplicaciones web a medida con React.
-    en: I built custom web applications with React.
-  - es: Desarrollé aplicaciones móviles multiplataforma con Flutter.
-    en: I built cross-platform mobile apps with Flutter.
-tech: [React, Flutter]
+  - es: Desarrollé aplicaciones web con React y aplicaciones móviles con Flutter, incluidos proyectos para SAAC Developers.
+    en: Built web apps with React and mobile apps with Flutter, including projects for SAAC Developers.
+  - es: En paralelo, como desarrollador de investigación en el CICTE de la ESPE, construí un sistema experto de realidad virtual en Unity para enseñar nutrición.
+    en: In parallel, as a research developer at ESPE's CICTE, I built a virtual reality expert system in Unity to teach nutrition.
+tech: [React, Flutter, Unity]
