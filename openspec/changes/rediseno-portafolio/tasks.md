@@ -44,7 +44,7 @@
 - [x] 6.5 Crear `Education.astro` a partir de la colección `education`, separando estudios y certificaciones, con logos uniformes sin degradados por entrada y enlaces de credencial cuando existan. Verificar que las certificaciones con `credentialUrl` abren en una pestaña nueva.
 - [x] 6.6 Crear `Contact.astro` con el correo visible, el botón `mailto:`, el botón Copiar con aviso en `aria-live`, y los enlaces a LinkedIn y GitHub. Verificar que copiar funciona y se anuncia, y que con JavaScript desactivado el correo y el `mailto:` siguen ahí.
 - [x] 6.7 Crear `HomePage.astro`, que compone las secciones en el orden Hero, Proyectos, Experiencia, Sobre mí, Formación y Contacto, y agregar las animaciones de entrada en CSS condicionadas a `.js` y a que no se haya pedido reducir movimiento. Verificar el orden en ambos idiomas, y que con "reducir movimiento" activado (DevTools → Rendering) no hay animaciones.
-- [ ] 6.8 Agregar el CV en `public/cv/` y la lógica del botón en inglés según exista o no el PDF en inglés (design D11). Verificar que en `/` se descarga el PDF en español y que en `/en/` el botón dice "Download CV (Spanish)" si no hay PDF en inglés.
+- [x] 6.8 Agregar el CV en `public/cv/` y la lógica del botón en inglés según exista o no el PDF en inglés (design D11). Verificar que en `/` se descarga el PDF en español y que en `/en/` el botón dice "Download CV (Spanish)" si no hay PDF en inglés.
 
 ## 7. SEO y metadatos
 
